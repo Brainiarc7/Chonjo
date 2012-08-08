@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<link type="text/css" rel="stylesheet" href="/stylesheets/site.css" />
+
+</head>
+
+<body style="height: 650px">
+
+<div style="z-index: 1; width: 935px; height: 275px; position: absolute; top: 160px; left: 245px">
+	<form  action="/generate" method="post" style="height: 140px">
+	<div style="z-index: 1; width: 165px; height: 60px; position: absolute; top: 5px; left: 15px">
+	<select name="param" style="height: 39px; width: 147px">
+	<option selected="selected">Category</option>
+	<option>Location</option>
+	<option>Source</option>
+	<option>Inciter</option>
+		</select></div>
+	
+
+	<div style="z-index: 1; width: 185px; height: 22px; position: absolute; top: 5px; left: 210px">
+	<select  name="days"style="width: 122px; height: 49px">
+	<option  selected="selected">1</option>
+	<option>10</option>
+	<option>30</option></select> days ago</div>
+	<div style="z-index: 1; width: 260px; height: 26px; position: absolute; top: 5px; left: 435px">
+		<input type="submit" name="generate" value="Generate Report" style="width: 185px; height: 40px;"></div>
+	</form>
+	<div class="newStyle6"style="position:absolute; left: 5px; top: 200px; width: 815px; height: 306px;">
+	{% if queries %}
+		<p>There were {{count}} reports sent over the past {{day}} days sorted according to {{param}}</p>
+		   <table>
+		   	<tr><td>Category</td><td>Location</td><td>Source</td></tr>
+		{% for query in queries %}
+			<tr><td>{{query.category}}</td><td>{{query.location}}</td><td>{{query.source}}</td></tr>
+		{% endfor %}
+			</table>
+	{% endif %}
+	</div>
+</div>
+
+<div class="info" style="z-index: 1; width: 935px; height: 60px; position: absolute; top: 45px; left: 235px">
+	M-CHONJO REPORTS</div>
+
+<div style="z-index: 1; width: 170px; height: 55px; position: absolute; top: 85px; left: 35px">
+<form action="/admin" method="get">
+<input type="submit" name="admin" value="Admin" style="width: 185px; height: 40px;"/>
+</form>
+</div>
+
+</body>
+
+</html>

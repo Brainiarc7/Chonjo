@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<link type="text/css" rel="stylesheet" href="/stylesheets/site.css" />
+</head>
+
+<body>
+	  <div class="newStyle6"style="z-index: 1; width: 805px; height: 75px; position: absolute; top: 45px; left: 500px">
+		 M-CHONJO</div>
+	  <div  class="newStyle6" style="z-index: 1; width: 610px; height: 40px; position: absolute; top: 150px; left: 505px">
+		  Report Breakdown</div>
+	 <div name="hints" class="empty" style="z-index: 1; width: 615px; height: 320px; position: absolute; top: 200px; left: 500px">
+	{% if id %}
+	 	{% if query2 %}
+	 		<p>{{count2}} matches were found</p>
+			{% for query in query2 %}
+		 		 <table><tr>{{query.description}} | {{location}} | {{date}}</tr></table>
+			{% endfor %}
+	 		<p>{{count3}} % of reports reported on {{date}} also came from {{location}}</p>
+	 	{% else %}
+	 		<p>{{message}}</p>
+	 		<div style="font-size:large;font-style:italic">{{count3}} %</div> <p>of reports reported on {{date}} also came from {{location}}</p>
+	 	{% endif %}
+	 {% endif %}
+	 <form action="/hint" method="post">	 
+	 <div><input type="submit" name="back" value="Back" style="width: 70px"/></div>
+	 </form>
+	 </div>
+
+</body>
+
+</html>

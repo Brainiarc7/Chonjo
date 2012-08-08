@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<link type="text/css" rel="stylesheet" href="/stylesheets/site.css" />
+</head>
+
+<body>
+
+<div  style="position: absolute; width: 1105px; height: 140px; z-index: 4; left: 150px; top: 20px;" id="layer1">
+	<div class="newStyle6" style="position: absolute; width: 416px; text-align:center; height: 58px; z-index: 1; left: 310px; top: 5px; font-family: 'Adobe Caslon Pro'; font-size: xx-large; font-style: normal; font-weight: 600; text-decoration: none; margin-left: auto; margin-right: auto;" id="layer4">
+		M-CHONJO</div>
+	<div class="empty" style="z-index: 1; text-align:center; width: 440px; height: 50px; position: absolute; top: 85px; left: 295px">Reporting Incitement
+	</div>
+	</div>
+<div class="empty" style="position: absolute;  width: 658px; height: 441px; z-index: 2; left: 650px; top: 190px; overflow: scroll;" id="layer2">
+        <table>
+        	 <tr><td>Category</td><td>Location</td><td>Source</td><td>Inciter</td><td>Date</td></tr>
+       {%for report in reports %}
+              <tr>
+               <td>{{report.category}}</td><td> {{report.location}}</td><td>{{report.source}}</td><td>{{report.inciter}}</td>
+                <td>{{report.create}}</td>
+              </tr>
+       {% endfor %}
+        </table>
+</div>
+<div style="position: absolute; width: 293px; height: 418px; z-index: 3; left: 157px; top: 190px;" id="layer3">
+<form action="/test" method="post">
+       <table style="width: 58px">
+        {{itemform}}
+        </table>
+ <div ><input type="submit" name="report" value="Report"></div>
+</form>
+</div>
+
+</body>
+
+</html>
